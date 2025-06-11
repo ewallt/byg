@@ -1,0 +1,219 @@
+ 
+
+CHAPTER SUMMARY DOCUMENT
+BOOK: Behold Your God  CHAPTER NUMBER: 3  CHAPTER TITLE: Avoid Speculative Theories  PAGE RANGE: pp. 17-24
+
+GENERATED HTML FOR TITLE <title>Behold Your God - Chapter 3: Avoid Speculative Theories</title>
+
+GENERATED HTML FOR HEADER <div class="chapter-info">Chapter 3: Avoid Speculative Theories</div> <div class="page-range">Pages 17-24</div>
+
+I. THE POINT OF THE CHAPTER (Central Thesis/Message):
+The author argues that spiritual safety and growth lie in studying only what God has revealed. Attempting to probe unrevealed “secret things” breeds ignorance, pride, and satanic deception; humbly receiving revealed truth brings ever-brightening knowledge, reverence, and life.
+
+GENERATED HTML FOR "CENTRAL THESIS" TAB:
+
+HTML
+
+<div class="content-panel active" id="thesis">
+    <h2 class="section-title">The Point of the Chapter</h2>
+    <div class="central-thesis">
+        <strong>Central Thesis:</strong> The author argues that spiritual safety and growth lie in studying only what God has revealed. Attempting to probe unrevealed “secret things” breeds ignorance, pride, and satanic deception, while humbly receiving revealed truth brings ever-brightening knowledge, reverence, and life.
+    </div>
+    <div class="warning-highlight">
+        <strong>Key Authorial Statement:</strong> “Nothing could be more dangerous than striving to understand the unrevealed things of God by powers within ourselves.”
+    </div>
+    <div class="scripture-ref">
+        <strong>Foundation Scripture - Deuteronomy 29:29:</strong> "The secret things belong to the Lord our God: but those things which are revealed belong to us and to our children for ever, that we may do all the words of this law."
+    </div>
+</div>
+II. HOW THE AUTHOR MAKES HIS CASE (Argumentation & Evidence):
+(This section details the arguments, which will be formatted into the 'Arguments' tab HTML below)
+
+GENERATED HTML FOR "ARGUMENTS" TAB:
+
+HTML
+
+<div class="content-panel" id="arguments">
+    <h2 class="section-title">How the Author Makes His Case</h2>
+    <div class="argument-point">
+        <div class="argument-title">Argument 1: Revelation Is Progressive and Timed by God</div>
+        <p>Mysteries that were once secret become revealed truth when humanity is prepared to receive them. The author cites Paul's testimony that truths hidden in earlier ages were unveiled in his day, and this process of ever-brightening knowledge will continue into eternity.</p>
+        <div class="warning-highlight">
+            <strong>Key Insight:</strong> "There was a time when certain things were secrets; in Paul’s day those things ‘passed from the category of the secret to that of the revealed.’”
+        </div>
+        <div class="quote">
+            <div class="quote-source">The Great Controversy, p. 678</div>
+            “The years of eternity, as they roll, will bring richer and still more glorious revelations of God and of Christ. As knowledge is progressive so will love, reverence, and happiness increase.”
+        </div>
+    </div>
+    <div class="argument-point">
+        <div class="argument-title">Argument 2: Human Dullness Delays Further Light</div>
+        <p>God does not arbitrarily conceal truth; rather, humanity's own neglect of present truth and spiritual immaturity can make it obscure. God cannot give "strong meat" to those who remain spiritual "milk-babies," thus hindering their own progress into deeper revelations.</p>
+        <div class="warning-highlight">
+            <strong>Key Insight:</strong> "God does not conceal His truth; men make it obscure to themselves."
+        </div>
+        <div class="scripture-ref">
+            <strong>Hebrews 5:11-14:</strong> Rebukes spiritual immaturity that blocks advanced instruction, stating that those who ought to be teachers still need milk because they are "dull of hearing."
+        </div>
+    </div>
+    <div class="argument-point">
+        <div class="argument-title">Argument 3: Speculative Theorizing Is Forbidden and Deadly</div>
+        <p>The author strongly warns against presumptuous human reasoning that attempts to probe into God's unrevealed nature or plans. Such speculation is not only fruitless but invites satanic deception. True wisdom lies in ceasing conjecture and humbly resting in God's revealed word.</p>
+        <div class="warning-highlight">
+            <strong>Key Authorial Statement:</strong> "Here silence is eloquence—let none indulge in speculation regarding His nature."
+        </div>
+        <div class="quote">
+            <div class="quote-source">Testimonies for the Church, vol. 8, pp. 279-280</div>
+            "We are as ignorant of God as little children, but as little children we may love and obey Him. Instead of speculating in regard to His nature or His prerogatives, let us give heed to the word He has spoken."
+        </div>
+    </div>
+</div>
+III. KEY TERMINOLOGY / CONCEPTS INTRODUCED OR DEFINED:
+Secret Things: Realities of God’s nature or plans still unrevealed (Deut 29:29).
+Revealed Things: Truths God has openly communicated for our study and obedience.
+Progressive Revelation: God’s continual, age-by-age unveiling of previously hidden truth (Eph 3:5; GC 678).
+Speculative Theories: Human conjectures about unrevealed matters—strictly forbidden and spiritually dangerous.
+GENERATED HTML FOR "CONCEPTS" TAB:
+
+HTML
+
+<div class="content-panel" id="concepts">
+    <h2 class="section-title">Key Terminology & Concepts</h2>
+    <div class="concept-card">
+        <div class="concept-title">Secret Things</div>
+        Realities of God’s nature or plans that are not yet revealed to humanity, which belong to Him alone (Deuteronomy 29:29).
+    </div>
+    <div class="concept-card">
+        <div class="concept-title">Revealed Things</div>
+        Truths that God has openly communicated for our study, benefit, and obedience. These are our rightful area of focus.
+    </div>
+    <div class="concept-card">
+        <div class="concept-title">Progressive Revelation</div>
+        The concept that God continually unveils previously hidden truth in every age, as people are able to receive it. The path of the just "shines ever brighter."
+    </div>
+    <div class="concept-card">
+        <div class="concept-title">Speculative Theories</div>
+        Human conjectures and reasoning about unrevealed matters. The author frames these as strictly forbidden, spiritually dangerous, and an invitation to deception.
+    </div>
+</div>
+IV. CHAPTER CONCLUSION / SYNTHESIS:
+Spiritual life demands a balanced path: resolutely avoid speculative trespass into God’s secrets, yet diligently embrace every truth He has revealed. As believers faithfully receive current light, God entrusts more; neglect or presumption forfeits that privilege. True wisdom rests in humble study, obedience, and patient expectation of further heavenly disclosure—never in unauthorized speculation.
+
+GENERATED HTML FOR "CONCLUSION" TAB:
+
+HTML
+
+<div class="content-panel" id="conclusion">
+    <h2 class="section-title">Chapter Conclusion & Synthesis</h2>
+    <div class="conclusion-box">
+        <h3 class="panel-subheading">The Balanced Path of Wisdom</h3>
+        <p>The chapter concludes that a safe and vibrant spiritual life requires a balanced path: we must resolutely avoid speculative trespass into God’s secrets while diligently embracing every truth He has already revealed.</p>
+    </div>
+    <div class="central-thesis">
+        <strong>The Key to Growth:</strong> As believers faithfully receive and act upon the light God has given, He entrusts them with more. Neglect of current truth or presumptuous speculation into unrevealed mysteries forfeits this privilege and hinders growth. True wisdom is found in humble study, obedience, and patient expectation.
+    </div>
+</div>
+V. & VI. SCRIPTURAL & OTHER REFERENCES (For 'References' Tab & JS Object)
+GENERATED HTML FOR "REFERENCES" TAB:
+
+HTML
+
+<div class="content-panel" id="references">
+    <h2 class="section-title">Complete Reference Lists</h2>
+    <div class="reference-list" id="referenceList">
+        <div class="ref-category">
+            <div class="ref-title">Scriptural References</div>
+            <div class="ref-item clickable-ref" data-ref-id="deut2929">Deuteronomy 29:29</div>
+            <div class="ref-item clickable-ref" data-ref-id="eph3">Ephesians 3:1-11</div>
+            <div class="ref-item clickable-ref" data-ref-id="prov418">Proverbs 4:18</div>
+            <div class="ref-item clickable-ref" data-ref-id="heb5">Hebrews 5:11-14</div>
+            <div class="ref-item clickable-ref" data-ref-id="ps4610">Psalm 46:10</div>
+            <div class="ref-item clickable-ref" data-ref-id="job11">Job 11:7-9</div>
+            <div class="ref-item clickable-ref" data-ref-id="job28">Job 28:12-28</div>
+            <div class="ref-item clickable-ref" data-ref-id="rom1133">Romans 11:33</div>
+        </div>
+        <div class="ref-category">
+            <div class="ref-title">Other Texts & Authors</div>
+            <div class="ref-item clickable-ref" data-ref-id="gc678">The Great Controversy, p. 678</div>
+            <div class="ref-item clickable-ref" data-ref-id="col127">Christ’s Object Lessons, p. 127</div>
+            <div class="ref-item clickable-ref" data-ref-id="col105">Christ’s Object Lessons, p. 105</div>
+            <div class="ref-item clickable-ref" data-ref-id="col134">Christ’s Object Lessons, p. 134</div>
+            <div class="ref-item clickable-ref" data-ref-id="test8_279">Testimonies for the Church, vol. 8, pp. 279-280</div>
+            <div class="ref-item clickable-ref" data-ref-id="mh438">The Ministry of Healing, p. 438</div>
+            <div class="ref-item clickable-ref" data-ref-id="test5_740">Testimonies for the Church, vol. 5, p. 740</div>
+        </div>
+    </div>
+    <div class="reference-detail-card" id="referenceDetailCard" style="display: none;">
+        <div class="ref-detail-header">
+            <span id="refDetailTitle"></span>
+            <button class="close-ref-btn" aria-label="Close Reference">✕</button>
+        </div>
+        <div class="ref-detail-content" id="refDetailContent"></div>
+    </div>
+</div>
+GENERATED JAVASCRIPT referenceData OBJECT:
+
+JavaScript
+
+const referenceData = {
+    'deut2929': {
+        title: 'Deuteronomy 29:29',
+        content: `<div class="verse-text">“The secret things belong to the Lord our God: but those things which are revealed belong to us and to our children for ever, that we may do all the words of this law.”</div>`
+    },
+    'eph3': {
+        title: 'Ephesians 3:1-11',
+        content: `<div class="verse-text">“For this reason I, Paul, the prisoner of Christ Jesus for you Gentiles— If indeed you have heard of the dispensation of the grace of God which was given to me for you, How that by revelation He made known to me the mystery (as I have briefly written already, By which, when you read, you may understand my knowledge in the mystery of Christ), Which in other ages was not made known to the sons of men, as it has now been revealed by the Spirit to His holy apostles and prophets: That the Gentiles should be fellow heirs, of the same body, and partakers of His promise in Christ through the gospel... To me, who am less than the least of all the saints, this grace was given, that I should preach among the Gentiles the unsearchable riches of Christ, And to make all people see what is the fellowship of the mystery... To the intent that now the manifold wisdom of God might be made known by the church to the principalities and powers in the heavenly places, According to the eternal purpose which He accomplished in Christ Jesus our Lord.”</div>`
+    },
+    'prov418': {
+        title: 'Proverbs 4:18',
+        content: `<div class="verse-text">“But the path of the just is like the shining sun, that shines ever brighter unto the perfect day.”</div>`
+    },
+    'heb5': {
+        title: 'Hebrews 5:11-14',
+        content: `<div class="verse-text">“Of whom we have much to say, and hard to explain, since you have become dull of hearing. For though by this time you ought to be teachers, you need someone to teach you again the first principles of the oracles of God; and you have come to need milk and not solid food. For everyone who partakes only of milk is unskilled in the word of righteousness, for he is a babe. But solid food belongs to those who are of full age, that is, those who by reason of use have their senses exercised to discern both good and evil.”</div>`
+    },
+    'ps4610': {
+        title: 'Psalm 46:10',
+        content: `<div class="verse-text">“Be still, and know that I am God.”</div>`
+    },
+    'job11': {
+        title: 'Job 11:7-9',
+        content: `<div class="verse-text">“Can you by searching find out God? Can you find out the Almighty unto perfection? It is as high as heaven; what can you do? Deeper than hell; what can you know? The measure thereof is longer than the earth, And broader than the sea.”</div>`
+    },
+    'job28': {
+        title: 'Job 28:12-28',
+        content: `<div class="verse-text">“Where shall wisdom be found? And where is the place of understanding?… God understands the way thereof, and He knows the place thereof… Then did He see it, and declare it; He prepared it, yea, and searched it out. And unto man He said, Behold, the fear of the Lord, that is wisdom; and to depart from evil is understanding.”</div>`
+    },
+    'rom1133': {
+        title: 'Romans 11:33',
+        content: `<div class="verse-text">“Unsearchable are His judgments, and His ways past finding out.”</div>`
+    },
+    'gc678': {
+        title: 'The Great Controversy, p. 678',
+        content: `<div class="verse-text">“The years of eternity, as they roll, will bring richer and still more glorious revelations of God and of Christ. As knowledge is progressive so will love, reverence, and happiness increase. The more men learn of God, the greater will be their admiration of His character.”</div>`
+    },
+    'col127': {
+        title: 'Christ’s Object Lessons, p. 127',
+        content: `<div class="verse-text">“In every age there is a new development of truth, a message of God to the people of that generation.”</div>`
+    },
+    'col105': {
+        title: 'Christ’s Object Lessons, p. 105',
+        content: `<div class="verse-text">“God does not conceal His truth from men. By their own course of action they make it obscure to themselves.”</div>`
+    },
+    'col134': {
+        title: 'Christ’s Object Lessons, p. 134',
+        content: `<div class="verse-text">“In eternity we shall learn that which, had we received the enlightenment it was possible to obtain here, would have opened our understanding. The themes of redemption will employ the hearts and minds and tongues of the redeemed through the everlasting ages. They will understand the truths which Christ longed to open to His disciples, but which they did not have faith to grasp. Forever and forever new views of the perfection and glory of Christ will appear. Through endless ages will the faithful Householder bring forth from His treasure things new and old.”</div>`
+    },
+    'test8_279': {
+        title: 'Testimonies for the Church, vol. 8, pp. 279-280',
+        content: `<div class="verse-text">“Even the angels were not permitted to share the counsels between the Father and the Son when the plan of salvation was laid. Those human beings who seek to intrude into the secrets of the Most High show their ignorance of spiritual and eternal things. Far better might they, while mercy’s voice is still heard, humble themselves in the dust and plead with God to teach them His ways. We are as ignorant of God as little children, but as little children we may love and obey Him. Instead of speculating in regard to His nature or His prerogatives, let us give heed to the word He has spoken.”</div>`
+    },
+    'mh438': {
+        title: 'The Ministry of Healing, p. 438',
+        content: `<div class="verse-text">“Man cannot by searching find out God. Let none seek with presumptuous hand to lift the veil that conceals His glory. It is a proof of His mercy that there is the hiding of His power; for to lift the veil that conceals the divine presence is death. No mortal mind can penetrate the secrecy in which the Mighty One dwells and works. Only that which He sees fit to reveal can we comprehend of Him. Reason must acknowledge an authority superior to itself. Heart and intellect must bow to the great I AM.”</div>`
+    },
+    'test5_740': {
+        title: 'Testimonies for the Church, vol. 5, p. 740',
+        content: `<div class="verse-text">“It is Satan’s constant study to keep the minds of men occupied with those things which will prevent them from obtaining the knowledge of God.”</div>`
+    }
+};

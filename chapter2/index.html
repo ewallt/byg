@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Behold Your God - Chapter 2: This is Eternal Life</title>
+    
     <style>
         * {
             margin: 0;
@@ -11,9 +12,7 @@
             box-sizing: border-box;
         }
 
-        /* --- THEME STYLES --- */
-        /* This section contains the styles that will be overridden by themes */
-        
+        /* --- TEMPLATE STYLES --- */
         body {
             font-family: 'Georgia', serif;
             line-height: 1.6;
@@ -28,7 +27,12 @@
             margin: 0 auto;
             padding: 20px;
         }
-
+        
+        .sticky-nav-header {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+        }
 
         .header {
             background: rgba(0, 0, 0, 0.6);
@@ -64,9 +68,10 @@
         .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
             margin-bottom: 30px;
             flex-wrap: wrap;
+            padding: 10px 0;
         }
 
         .tab-button {
@@ -74,26 +79,29 @@
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             color: #ecf0f1;
-            padding: 12px 24px;
-            border-radius: 25px;
+            padding: 12px 28px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 1em;
+            font-weight: 500;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .tab-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 181, 246, 0.7);
             background: rgba(0, 0, 0, 0.7);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(100, 181, 246, 0.5);
         }
 
         .tab-button.active {
             background: linear-gradient(135deg, #1a1a3a 0%, #2e2e5e 100%);
             color: #64b5f6;
+            font-weight: bold;
+            border-color: rgba(100, 181, 246, 0.8);
             transform: translateY(-2px);
-            border: 1px solid rgba(100, 181, 246, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
         }
 
         .content-panel {
@@ -131,31 +139,19 @@
             font-size: 1.2em;
         }
 
-        .central-thesis, .warning-highlight {
+        .central-thesis, .warning-highlight, .conclusion-box {
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(100, 181, 246, 0.4);
             padding: 25px;
             border-radius: 15px;
-            margin-bottom: 25px;
+            margin: 20px 0;
             border-left: 5px solid #64b5f6;
             font-size: 1.1em;
             font-weight: 500;
             color: #ecf0f1;
         }
         
-        .equation-box {
-            background: rgba(0, 0, 0, 0.5);
-            border: 3px solid #64b5f6;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            text-align: center;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #64b5f6;
-        }
-
         .argument-point {
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(15px);
@@ -206,7 +202,16 @@
             border-radius: 15px;
         }
         
+        .ref-category {
+            margin-bottom: 15px;
+        }
+
         .ref-item { border-left: 3px solid #42a5f5; padding: 10px 15px; margin: 5px 0; }
+        
+        .clickable-ref {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
         
         .clickable-ref:hover {
             background: linear-gradient(135deg, #1a1a3a 0%, #2e2e5e 100%);
@@ -215,7 +220,7 @@
             border: 1px solid rgba(100, 181, 246, 0.5);
         }
 
-        .reference-detail-card, .conclusion-box {
+        .reference-detail-card {
             background: linear-gradient(135deg, #1a1a3a 0%, #2e2e5e 100%);
             color: #ecf0f1;
             border-radius: 20px;
@@ -224,22 +229,17 @@
             border: 1px solid rgba(100, 181, 246, 0.3);
         }
         
-        .ref-detail-header span { color: #64b5f6; }
-        
-        .close-ref-btn {
+        .equation-box {
             background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #ecf0f1;
+            border: 3px solid #64b5f6;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #64b5f6;
         }
-        
-        .close-ref-btn:hover {
-            background: linear-gradient(135deg, #1a1a3a 0%, #2e2e5e 100%);
-            border: 1px solid rgba(100, 181, 246, 0.5);
-        }
-
-        .ref-detail-content h3 { color: #64b5f6; }
-        .ref-detail-content .verse-text { border: 1px solid rgba(100, 181, 246, 0.3); border-left: 4px solid #64b5f6; }
-        .ref-detail-content .explanation { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.2); }
         
         .life-death-contrast {
             display: grid;
@@ -269,6 +269,41 @@
         }
         
         .death-side h4 { color: #42a5f5; }
+
+        .ref-detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(100, 181, 246, 0.3);
+        }
+        
+        .ref-detail-header span { font-size: 1.5em; font-weight: bold; color: #64b5f6; }
+        
+        .close-ref-btn {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ecf0f1;
+            font-size: 1.5em;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-ref-btn:hover {
+            background: linear-gradient(135deg, #1a1a3a 0%, #2e2e5e 100%);
+            border: 1px solid rgba(100, 181, 246, 0.5);
+        }
+
+        .ref-detail-content h3 { color: #64b5f6; }
+        .ref-detail-content .verse-text { border: 1px solid rgba(100, 181, 246, 0.3); border-left: 4px solid #64b5f6; }
+        .ref-detail-content .explanation { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.2); }
         
         .progress-indicator {
             position: fixed;
@@ -280,9 +315,6 @@
             z-index: 1000;
         }
         
-        /* --- END OF THEME STYLES --- */
-        
-        /* --- NEW THEME SELECTOR UI --- */
         .theme-selector {
             position: fixed;
             top: 15px;
@@ -293,31 +325,32 @@
         }
 
         .theme-btn {
-            width: 30px;
-            height: 30px;
+            width: 50px;
+            height: 50px;
             border: 2px solid rgba(255, 255, 255, 0.7);
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
 
         .theme-btn:hover {
-            transform: scale(1.15);
+            transform: scale(1.1);
             border-color: #fff;
         }
         
         .theme-original-btn { background: linear-gradient(135deg, #1a1a3a, #64b5f6); }
-        .theme-sepia-btn { background: linear-gradient(135deg, #fdf6e3, #b58900); }
-        .theme-forest-btn { background: linear-gradient(135deg, #2a4c3a, #a5d6a7); }
+        .theme-stately-btn { background: #ffffff; }
+        .theme-forest-btn { background: linear-gradient(135deg, #2a4c3a, #58cdaa); }
         
-        /* --- NEW THEME OVERRIDES --- */
-
-/* Theme 2: Stately Theme */
+        /* --- THEME OVERRIDES --- */
+        
+        /* Theme 2: Stately Theme */
         body.theme-stately {
             background: linear-gradient(135deg, #B0C4DE 0%, #778899 100%);
             color: #333;
         }
+        .theme-stately .sticky-nav-header { background: #B0C4DE; }
         .theme-stately .header, .theme-stately .content-panel, .theme-stately .reference-list {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(5px);
@@ -341,38 +374,32 @@
             color: #003366;
         }
         .theme-stately .tab-button {
-            background: none;
-            border: none;
-            border-bottom: 3px solid transparent;
-            color: #000; /* Changed from #333 to pure black for maximum contrast */
+            background: #fff;
+            border: 1px solid #cdd5e0;
+            color: #003366;
             backdrop-filter: none;
-            border-radius: 0;
-            padding-bottom: 8px;
-            font-weight: 500;
-            transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
         }
         .theme-stately .tab-button:hover {
-            background: none;
-            color: #003366;
-            border-bottom-color: #D4AF37;
+            border-color: #D4AF37;
+            background: #f8f9fa;
         }
         .theme-stately .tab-button.active {
-            background: none;
-            color: #003366;
-            border-bottom-color: #003366;
-            font-weight: bold;
+            background: linear-gradient(45deg, #003366, #004080);
+            color: white;
+            border-color: #003366;
         }
         .theme-stately .section-title {
             border-bottom-color: #003366;
         }
-        .theme-stately .central-thesis, .theme-stately .warning-highlight, .theme-stately .scripture-ref, .theme-stately .quote, .theme-stately .concept-card, .theme-stately .ref-item, .theme-stately .argument-point, .theme-stately .life-side, .theme-stately .death-side {
+        .theme-stately .central-thesis, .theme-stately .warning-highlight, .theme-stately .conclusion-box, .theme-stately .scripture-ref, .theme-stately .quote, .theme-stately .concept-card, .theme-stately .ref-item, .theme-stately .argument-point, .theme-stately .life-side, .theme-stately .death-side {
             background: #fff;
             backdrop-filter: none;
             border: 1px solid #e0e0e0;
             color: #333;
             box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         }
-        .theme-stately .central-thesis, .theme-stately .warning-highlight, .theme-stately .scripture-ref, .theme-stately .life-side, .theme-stately .ref-detail-content .verse-text {
+        .theme-stately .central-thesis, .theme-stately .warning-highlight, .theme-stately .conclusion-box, .theme-stately .scripture-ref, .theme-stately .life-side, .theme-stately .ref-detail-content .verse-text {
             border-left: 4px solid #003366;
         }
         .theme-stately .quote, .theme-stately .ref-item, .theme-stately .argument-point, .theme-stately .death-side {
@@ -388,7 +415,7 @@
             color: #003366;
             border: 1px solid #D4AF37;
         }
-        .theme-stately .reference-detail-card, .theme-stately .conclusion-box {
+        .theme-stately .reference-detail-card {
             background: #f0f4f9;
             border: 1px solid #B0C4DE;
             color: #333;
@@ -410,32 +437,41 @@
         .theme-stately .progress-indicator {
             background: linear-gradient(90deg, #D4AF37, #B8860B);
         }
+
         /* Theme 3: Forest Canopy */
-/* Theme 3: Forest Canopy (Revised for better value matching) */
-/* Theme 3: Forest Canopy (Revised for cooler hue) */
         body.theme-forest {
             background: linear-gradient(135deg, #0f1a14 0%, #182c21 50%, #203f2e 100%);
             color: #e0e0e0;
         }
-        .theme-forest .header, .theme-forest .content-panel, .theme-forest .reference-list, .theme-forest .tab-button, .theme-forest .argument-point, .theme-forest .central-thesis, .theme-forest .warning-highlight, .theme-forest .scripture-ref, .theme-forest .quote, .theme-forest .concept-card, .theme-forest .ref-item, .theme-forest .life-side, .theme-forest .death-side, .theme-forest .close-ref-btn {
+        .theme-forest .sticky-nav-header { background: #0f1a14; }
+        .theme-forest .header, .theme-forest .content-panel, .theme-forest .reference-list, .theme-forest .argument-point, .theme-forest .concept-card, .theme-forest .ref-item, .theme-forest .close-ref-btn {
             background: rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(170, 194, 178, 0.3);
+        }
+        .theme-forest .header {
+            border-bottom: 2px solid #58cdaa;
         }
         .theme-forest .book-title, .theme-forest .section-title {
             color: #e0e0e0;
         }
-        .theme-forest .chapter-info, .theme-forest .argument-title, .theme-forest .concept-title, .theme-forest .quote-source, .theme-forest .ref-title, .theme-forest .ref-detail-header span, .theme-forest .ref-detail-content h3, .theme-forest .life-side h4 {
-            color: #58cdaa;
+        .theme-forest .content-panel h3 {
+            color: #58cdaa !important;
         }
-        .theme-forest .page-range, .theme-forest .death-side h4 {
-            color: #4ab798;
+        .theme-forest .chapter-info, .theme-forest .page-range {
+            color: #a3b1a9;
+        }
+        .theme-forest .argument-title, .theme-forest .concept-title, .theme-forest .quote-source, .theme-forest .ref-title, .theme-forest .ref-detail-header span, .theme-forest .ref-detail-content h3, .theme-forest .life-side h4, .theme-forest .death-side h4 {
+            color: #58cdaa;
         }
         .theme-forest .tab-button {
             color: #e0e0e0;
+            background: rgba(0,0,0,0.4);
+            border-color: rgba(170, 194, 178, 0.3);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
         }
         .theme-forest .tab-button:hover {
-            background: rgba(0, 0, 0, 0.7);
             border-color: #58cdaa;
+            background: rgba(0, 0, 0, 0.6);
         }
         .theme-forest .tab-button.active {
             background: linear-gradient(135deg, #182c21, #203f2e);
@@ -445,38 +481,45 @@
         .theme-forest .section-title {
             border-bottom-color: #58cdaa;
         }
-        .theme-forest .central-thesis, .theme-forest .warning-highlight, .theme-forest .scripture-ref, .theme-forest .life-side, .theme-forest .ref-detail-content .verse-text {
-            border-left-color: #58cdaa;
-            border-color: rgba(170, 194, 178, 0.4);
+        .theme-forest .central-thesis, .theme-forest .warning-highlight, .theme-forest .conclusion-box, .theme-forest .scripture-ref, .theme-forest .quote, .theme-forest .concept-card, .theme-forest .ref-item, .theme-forest .argument-point {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(170, 194, 178, 0.2);
+            color: #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .theme-forest .quote, .theme-forest .ref-item, .theme-forest .argument-point, .theme-forest .death-side {
-            border-left-color: #4ab798;
+        .theme-forest .central-thesis, .theme-forest .warning-highlight, .theme-forest .conclusion-box, .theme-forest .scripture-ref, .theme-forest .ref-detail-content .verse-text {
+            border-left: 4px solid #58cdaa;
+        }
+        .theme-forest .quote, .theme-forest .ref-item, .theme-forest .argument-point {
+            border-left: 4px solid #a3b1a9;
         }
         .theme-forest .equation-box {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.4);
             color: #58cdaa;
             border-color: #58cdaa;
         }
         .theme-forest .clickable-ref:hover {
-            background: linear-gradient(135deg, #182c21, #203f2e);
+            background: rgba(0, 0, 0, 0.5);
             color: #58cdaa;
-            border-color: #58cdaa;
+            border: 1px solid #58cdaa;
         }
-        .theme-forest .reference-detail-card, .theme-forest .conclusion-box {
-            background: linear-gradient(135deg, #182c21, #203f2e);
-            border-color: rgba(170, 194, 178, 0.4);
+        .theme-forest .reference-detail-card {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(170, 194, 178, 0.3);
+            color: #e0e0e0;
         }
         .theme-forest .close-ref-btn:hover {
-            background: linear-gradient(135deg, #182c21, #203f2e);
+            background: rgba(0, 0, 0, 0.7);
             border-color: #58cdaa;
         }
         .theme-forest .ref-detail-content .explanation {
-            background: rgba(0, 0, 0, 0.3);
-            border-color: rgba(170, 194, 178, 0.2);
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(170, 194, 178, 0.2);
         }
         .theme-forest .progress-indicator {
             background: linear-gradient(90deg, #58cdaa, #4ab798);
         }
+
         /* --- END OF THEME OVERRIDES --- */
 
         @keyframes slideInUp {
@@ -508,8 +551,8 @@
             }
         }
     </style>
-</head>
-<body class="theme-original">
+    </head>
+<body>
     <div class="theme-selector">
         <button class="theme-btn theme-original-btn" onclick="setTheme('original')" title="Cosmic Night"></button>
         <button class="theme-btn theme-stately-btn" onclick="setTheme('stately')" title="Stately Theme"></button>
@@ -519,19 +562,20 @@
     <div class="progress-indicator" id="progressBar"></div>
 
     <div class="container">
-        <header class="header">
-            <h1 class="book-title">📖 Behold Your God</h1>
-            <div class="chapter-info">Chapter 2: This is Eternal Life</div>
-            <div class="page-range">Pages 7-15</div>
-        </header>
-
-        <nav class="nav-tabs">
-            <button class="tab-button active" onclick="showTab('thesis')">🎯 Central Thesis</button>
-            <button class="tab-button" onclick="showTab('arguments')">📚 Main Arguments</button>
-            <button class="tab-button" onclick="showTab('concepts')">💡 Key Concepts</button>
-            <button class="tab-button" onclick="showTab('references')">📋 References</button>
-            <button class="tab-button" onclick="showTab('conclusion')">✨ Conclusion</button>
-        </nav>
+        <div class="sticky-nav-header">
+    <header class="header">
+                <h1 class="book-title">📖 Behold Your God</h1>
+                <div class="chapter-info">Chapter 2: This is Eternal Life</div>
+                <div class="page-range">Pages 7-15</div>
+            </header>
+    <nav class="nav-tabs">
+                <button class="tab-button active" onclick="showTab('thesis')">🎯 Central Thesis</button>
+                <button class="tab-button" onclick="showTab('arguments')">📚 Main Arguments</button>
+                <button class="tab-button" onclick="showTab('concepts')">💡 Key Concepts</button>
+                <button class="tab-button" onclick="showTab('references')">📋 References</button>
+                <button class="tab-button" onclick="showTab('conclusion')">✨ Conclusion</button>
+            </nav>
+        </div>
 
         <main>
             <div class="content-panel active" id="thesis">
@@ -570,7 +614,7 @@
                 <div class="scripture-ref">
                     <strong>📜 Foundation Scripture - John 17:3 (Amplified):</strong> "And this is eternal life: [it means] to know (to perceive, recognize, become acquainted with and understand) You, the only true and real God, and [likewise] to know Him, Jesus [as the] Christ, the Anointed One, the Messiah, Whom You have sent."
                 </div>
-            </div>
+                </div>
 
             <div class="content-panel" id="arguments">
                 <h2 class="section-title">
@@ -623,7 +667,7 @@
                         "Brethren and sisters, it is by beholding that we become changed. By dwelling upon the love of God and our Saviour, by contemplating the perfection of the divine character and claiming the righteousness of Christ as ours by faith, we are to be transformed into the same image."
                     </div>
                 </div>
-            </div>
+                </div>
 
             <div class="content-panel" id="concepts">
                 <h2 class="section-title">
@@ -650,7 +694,7 @@
                     <div class="concept-title">Character Transformation</div>
                     The process by which knowledge of God recreates the soul in His image. This happens through beholding and contemplating God's perfect character as revealed in Christ. "It is by beholding that we become changed."
                 </div>
-            </div>
+                </div>
 
             <div class="content-panel" id="references">
                 <h2 class="section-title">
@@ -682,7 +726,7 @@
                     </div>
                     <div class="ref-detail-content" id="refDetailContent"></div>
                 </div>
-            </div>
+                </div>
 
             <div class="content-panel" id="conclusion">
                 <h2 class="section-title">
@@ -702,38 +746,12 @@
                 <div class="warning-highlight">
                     <strong>The Correction Coming:</strong> Satan has systematically misrepresented God's character throughout history. Christ came to correct these false representations, and the end-time message will complete this work. Believers must be prepared to have their concepts challenged and corrected.
                 </div>
-            </div>
+                </div>
         </main>
     </div>
-
+    
     <script>
-        // --- NEW THEME SWITCHER FUNCTION ---
-        function setTheme(themeName) {
-            document.body.className = `theme-${themeName}`;
-        }
-
-        function showTab(tabName) {
-            const panels = document.querySelectorAll('.content-panel');
-            panels.forEach(panel => panel.classList.remove('active'));
-
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => button.classList.remove('active'));
-
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-
-            updateProgressBar(tabName);
-        }
-
-        function updateProgressBar(tabName) {
-            const progressBar = document.getElementById('progressBar');
-            const tabs = ['thesis', 'arguments', 'concepts', 'references', 'conclusion'];
-            const currentIndex = tabs.indexOf(tabName);
-            const progress = ((currentIndex + 1) / tabs.length) * 100;
-            progressBar.style.width = progress + '%';
-        }
-
-        const referenceData = {
+    const referenceData = {
             'john173': {
                 title: 'John 17:3 (Amplified Bible)',
                 content: `<h3>The Foundation Equation</h3><div class="verse-text">"And this is eternal life: [it means] to know (to perceive, recognize, become acquainted with and understand) You, the only true and real God, and [likewise] to know Him, Jesus [as the] Christ, the Anointed One, the Messiah, Whom You have sent." - John 17:3 (Amplified)</div><div class="explanation"><strong>The Life-Knowledge Equation:</strong> This verse establishes the fundamental truth of the chapter—that eternal life IS the knowledge of God and Christ. The Amplified Bible reveals the depth of "know": to perceive (see clearly), recognize (acknowledge who He really is), become acquainted with (develop relationship), and understand (comprehend His character). This is not intellectual knowledge alone, but experiential, transformative knowing.</div>`
@@ -775,6 +793,30 @@
                 content: `<div class="verse-text">"He presented to men that which was exactly contrary to the representations of the enemy in regard to the character of God."</div><div class="explanation"><strong>Correcting Misrepresentations:</strong> This statement reveals that Satan has systematically misrepresented God's character, and Christ's mission was to present the exact opposite—the truth about God. This shows why many people's concepts of God need to be challenged and corrected. What we've believed about God may be "exactly contrary" to who He really is.</div>`
             }
         };
+        function showTab(tabName) {
+            const panels = document.querySelectorAll('.content-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            updateProgressBar(tabName);
+        }
+
+        function updateProgressBar(tabName) {
+            const progressBar = document.getElementById('progressBar');
+            const tabs = ['thesis', 'arguments', 'concepts', 'references', 'conclusion'];
+            const currentIndex = tabs.indexOf(tabName);
+            const progress = ((currentIndex + 1) / tabs.length) * 100;
+            progressBar.style.width = progress + '%';
+        }
+        
+        function setTheme(themeName) {
+            document.body.className = `theme-${themeName}`;
+        }
 
         function showReference(refId) {
             const referenceList = document.getElementById('referenceList');
@@ -782,28 +824,29 @@
             const refTitle = document.getElementById('refDetailTitle');
             const refContent = document.getElementById('refDetailContent');
 
-            referenceList.style.display = 'none';
-            detailCard.style.display = 'block';
+            if (!detailCard || !refTitle || !refContent) return;
 
             const data = referenceData[refId];
+            if (!data) return;
+
             refTitle.textContent = data.title;
             refContent.innerHTML = data.content;
-
-            detailCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            if (referenceList) referenceList.style.display = 'none';
+            detailCard.style.display = 'block';
         }
 
         function hideReference() {
             const referenceList = document.getElementById('referenceList');
             const detailCard = document.getElementById('referenceDetailCard');
 
-            detailCard.style.display = 'none';
-            referenceList.style.display = 'block';
+            if (detailCard) detailCard.style.display = 'none';
+            if (referenceList) referenceList.style.display = 'block';
         }
-
-        updateProgressBar('thesis');
-
+        
         document.addEventListener('DOMContentLoaded', function() {
-            setTheme('original'); // Set default theme on load
+            updateProgressBar('thesis');
+            setTheme('original'); 
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -812,9 +855,9 @@
                         entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            });
+            }, { threshold: 0.1 });
 
-            document.querySelectorAll('.argument-point, .concept-card, .quote, .scripture-ref').forEach(el => {
+            document.querySelectorAll('.argument-point, .concept-card, .quote, .scripture-ref, .central-thesis, .warning-highlight, .conclusion-box, .life-death-contrast').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'all 0.6s ease';
@@ -824,17 +867,16 @@
 
         document.addEventListener('keydown', function(e) {
             const tabs = ['thesis', 'arguments', 'concepts', 'references', 'conclusion'];
-            const activeTab = document.querySelector('.content-panel.active').id;
-            const currentIndex = tabs.indexOf(activeTab);
+            const activeTab = document.querySelector('.content-panel.active');
+            if(!activeTab) return;
+            const currentIndex = tabs.indexOf(activeTab.id);
 
             if (e.key === 'ArrowRight' && currentIndex < tabs.length - 1) {
-                const nextButton = document.querySelectorAll('.tab-button')[currentIndex + 1];
-                nextButton.click();
+                document.querySelectorAll('.tab-button')[currentIndex + 1].click();
             } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
-                const prevButton = document.querySelectorAll('.tab-button')[currentIndex - 1];
-                prevButton.click();
+                document.querySelectorAll('.tab-button')[currentIndex - 1].click();
             }
         });
     </script>
-</body>
+    </body>
 </html>

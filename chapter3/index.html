@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Behold Your God - Chapter 3: Avoid Speculative Theories</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* --- TEMPLATE STYLES --- */
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #ecf0f1;
+            background: linear-gradient(135deg, #0a0a23 0%, #1a1a3a 50%, #2e2e5e 100%);
+            min-height: 100vh;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .sticky-nav-header {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .book-title {
+            font-size: 2.5em;
+            color: #ecf0f1;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .chapter-info {
+            font-size: 1.3em;
+            color: #64b5f6;
+            margin-bottom: 10px;
+        }
+
+        .page-range {
+            font-size: 1.1em;
+            color: #42a5f5;
+            font-style: italic;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+
+        .tab-button {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ecf0f1;
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(100, 181, 246, 0.7);
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #1a1a3a 0%, #2e2e5e 100%);
+            color: #64b5f6;
+            font-weight: bold;
+            border-color: rgba(100, 181, 246, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        .content-panel {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .content-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #ecf0f1;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #64b5f6;
+        }
+
+        .panel-subheading {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+
+        .central-thesis, .warning-highlight, .conclusion-box {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(100, 181, 246, 0.4);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #64b5f6;
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #ecf0f1;
+        }
+        
+        .argument-point {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 4px solid #42a5f5;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 0 10px 10px 0;
+            color: #ecf0f1;
+        }
+        
+        .argument-title {
+            font-size: 1.3em;
+            color: #64b5f6;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .scripture-ref, .quote, .concept-card, .ref-item {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(100, 181, 246, 0.4);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #64b5f6;
+            color: #ecf0f1;
+        }
+
+        .quote {
+            border-left-color: #42a5f5;
+            font-style: italic;
+        }
+
+        .quote-source, .concept-title, .ref-title, .life-side h4, .death-side h4 {
+            font-weight: bold;
+            color: #64b5f6;
+            margin-bottom: 10px;
+        }
+        
+        .concept-card { padding: 20px; border-radius: 15px; }
+        .concept-title { font-size: 1.2em; }
+        
+        .reference-list {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+        }
+        
+        .ref-category {
+            margin-bottom: 15px;
+        }
+
+        .ref-item { border-left: 3px solid #42a5f5; padding: 10px 15px; margin: 5px 0; }
+        
+        .clickable-ref {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .clickable-ref:hover {
+            background: linear-gradient(135deg, #1a1a3a 0%, #2e2e5e 100%);
+            color: #64b5f6;
+            transform: translateX(10px);
+            border: 1px solid rgba(100, 181, 246, 0.5);
+        }
+
+        .reference-detail-card {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            color: #ecf0f1;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .equation-box {
+            background: rgba(0, 0, 0, 0.5);
+            border: 3px solid #64b5f6;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #64b5f6;
+        }
+        
+        .life-death-contrast {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .life-side {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(100, 181, 246, 0.4);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #64b5f6;
+            color: #ecf0f1;
+        }
+        
+        .death-side {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #42a5f5;
+            color: #ecf0f1;
+        }
+        
+        .death-side h4 { color: #42a5f5; }
+
+        .ref-detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .ref-detail-header span { font-size: 1.5em; font-weight: bold; color: #64b5f6; }
+        
+        .close-ref-btn {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ecf0f1;
+            font-size: 1.5em;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-ref-btn:hover {
+            background: linear-gradient(135deg, #1a1a3a 0%, #2e2e5e 100%);
+            border: 1px solid rgba(100, 181, 246, 0.5);
+        }
+
+        .ref-detail-content {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: left;
+            color: #ecf0f1;
+        }
+
+        .ref-detail-content h3 { color: #64b5f6; margin-bottom: 15px; font-size: 1.3em; }
+        
+        .ref-detail-content .verse-text {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(100, 181, 246, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        .ref-detail-content .explanation {
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #64b5f6, #42a5f5);
+            transition: width 0.3s ease, background 0.5s ease;
+            z-index: 1000;
+        }
+        
+        /* --- THEME SELECTOR UI --- */
+        .theme-selector {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            z-index: 1001;
+            display: flex;
+            gap: 10px;
+        }
+
+        .theme-btn {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.1);
+            border-color: #fff;
+        }
+        
+        .theme-original-btn { background: linear-gradient(135deg, #1a1a3a, #64b5f6); }
+        .theme-stately-btn { background: #ffffff; }
+        .theme-forest-btn { background: linear-gradient(135deg, #2a4c3a, #58cdaa); }
+        
+        /* --- THEME OVERRIDES --- */
+        
+        /* Theme 2: Stately Theme */
+        body.theme-stately {
+            background: linear-gradient(135deg, #B0C4DE 0%, #778899 100%);
+            color: #333;
+        }
+        .theme-stately .sticky-nav-header { background: #B0C4DE; }
+        .theme-stately .header, .theme-stately .content-panel, .theme-stately .reference-list, .theme-stately .reference-detail-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .theme-stately .header {
+            border-bottom: 2px solid #003366;
+        }
+        .theme-stately .book-title, .theme-stately .section-title {
+            color: #003366;
+            text-shadow: none;
+        }
+        .theme-stately .panel-subheading { color: #003366; }
+        .theme-stately .content-panel h3 { color: #003366 !important; }
+        .theme-stately .chapter-info, .theme-stately .page-range { color: #465A70; }
+        .theme-stately .argument-title, .theme-stately .concept-title, .theme-stately .quote-source, .theme-stately .ref-title, .theme-stately .ref-detail-header span, .theme-stately .ref-detail-content h3, .theme-stately .life-side h4, .theme-stately .death-side h4 { color: #003366; }
+        .theme-stately .tab-button {
+            background: #fff;
+            border: 1px solid #cdd5e0;
+            color: #003366;
+            backdrop-filter: none;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+        .theme-stately .tab-button:hover { border-color: #D4AF37; background: #f8f9fa; }
+        .theme-stately .tab-button.active {
+            background: linear-gradient(45deg, #003366, #004080);
+            color: white;
+            border-color: #003366;
+        }
+        .theme-stately .section-title { border-bottom-color: #003366; }
+        .theme-stately .central-thesis, .theme-stately .warning-highlight, .theme-stately .conclusion-box, .theme-stately .scripture-ref, .theme-stately .quote, .theme-stately .concept-card, .theme-stately .ref-item, .theme-stately .argument-point, .theme-stately .life-side, .theme-stately .death-side {
+            background: #fff;
+            backdrop-filter: none;
+            border: 1px solid #e0e0e0;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        .theme-stately .central-thesis, .theme-stately .warning-highlight, .theme-stately .conclusion-box, .theme-stately .scripture-ref, .theme-stately .life-side { border-left: 4px solid #003366; }
+        .theme-stately .quote, .theme-stately .ref-item, .theme-stately .argument-point, .theme-stately .death-side { border-left: 4px solid #465A70; }
+        .theme-stately .equation-box { background: #fdfdfd; color: #003366; border: 2px solid #003366; }
+        .theme-stately .clickable-ref:hover { background: #e9eef6; color: #003366; border: 1px solid #D4AF37; }
+        .theme-stately .ref-detail-content { color: #333; }
+        .theme-stately .ref-detail-content .verse-text { background: #f0f4f9; border: 1px solid #dde3ea; border-left: 4px solid #003366; }
+        .theme-stately .ref-detail-content .explanation { background: #f0f4f9; border: 1px solid #dde3ea; margin-top: 15px; }
+        .theme-stately .close-ref-btn { background: #fff; border: 1px solid #465A70; color: #465A70; }
+        .theme-stately .close-ref-btn:hover { background: #003366; border-color: #003366; color: #fff; }
+        .theme-stately .progress-indicator { background: linear-gradient(90deg, #D4AF37, #B8860B); }
+
+        /* Theme 3: Forest Canopy */
+        body.theme-forest {
+            background: linear-gradient(135deg, #0f1a14 0%, #182c21 50%, #203f2e 100%);
+            color: #e0e0e0;
+        }
+        .theme-forest .sticky-nav-header { background: #0f1a14; }
+        .theme-forest .header, .theme-forest .content-panel, .theme-forest .reference-list, .theme-forest .argument-point, .theme-forest .concept-card, .theme-forest .ref-item, .theme-forest .close-ref-btn, .theme-forest .reference-detail-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(170, 194, 178, 0.3);
+        }
+        .theme-forest .header { border-bottom: 2px solid #58cdaa; }
+        .theme-forest .book-title, .theme-forest .section-title { color: #e0e0e0; }
+        .theme-forest .panel-subheading { color: #a3b1a9; }
+        .theme-forest .content-panel h3 { color: #58cdaa !important; }
+        .theme-forest .chapter-info, .theme-forest .page-range { color: #a3b1a9; }
+        .theme-forest .argument-title, .theme-forest .concept-title, .theme-forest .quote-source, .theme-forest .ref-title, .theme-forest .ref-detail-header span, .theme-forest .ref-detail-content h3, .theme-forest .life-side h4, .theme-forest .death-side h4 { color: #58cdaa; }
+        .theme-forest .tab-button {
+            color: #e0e0e0;
+            background: rgba(0,0,0,0.4);
+            border-color: rgba(170, 194, 178, 0.3);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        .theme-forest .tab-button:hover { border-color: #58cdaa; background: rgba(0, 0, 0, 0.6); }
+        .theme-forest .tab-button.active {
+            background: linear-gradient(135deg, #182c21, #203f2e);
+            color: #58cdaa;
+            border-color: #58cdaa;
+        }
+        .theme-forest .section-title { border-bottom-color: #58cdaa; }
+        .theme-forest .central-thesis, .theme-forest .warning-highlight, .theme-forest .conclusion-box, .theme-forest .scripture-ref, .theme-forest .quote, .theme-forest .concept-card, .theme-forest .ref-item, .theme-forest .argument-point {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(170, 194, 178, 0.2);
+            color: #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .theme-forest .central-thesis, .theme-forest .warning-highlight, .theme-forest .conclusion-box, .theme-forest .scripture-ref { border-left: 4px solid #58cdaa; }
+        .theme-forest .quote, .theme-forest .ref-item, .theme-forest .argument-point { border-left: 4px solid #a3b1a9; }
+        .theme-forest .equation-box { background: rgba(0, 0, 0, 0.4); color: #58cdaa; border-color: #58cdaa; }
+        .theme-forest .clickable-ref:hover { background: rgba(0, 0, 0, 0.5); color: #58cdaa; border: 1px solid #58cdaa; }
+        .theme-forest .close-ref-btn:hover { background: rgba(0, 0, 0, 0.7); border-color: #58cdaa; }
+        .theme-forest .ref-detail-content { color: #e0e0e0; }
+        .theme-forest .ref-detail-content .verse-text { background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(170, 194, 178, 0.3); border-left: 4px solid #58cdaa; }
+        .theme-forest .ref-detail-content .explanation { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(170, 194, 178, 0.2); margin-top: 15px; }
+        .theme-forest .progress-indicator { background: linear-gradient(90deg, #58cdaa, #4ab798); }
+
+        /* --- END OF THEME OVERRIDES --- */
+
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            .book-title { font-size: 2em; }
+            .nav-tabs { flex-direction: column; align-items: center; }
+            .tab-button { width: 100%; max-width: 300px; margin: 5px 0; }
+            .content-panel { padding: 20px; }
+            .life-death-contrast { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="theme-original">
+    <div class="theme-selector">
+        <button class="theme-btn theme-original-btn" data-theme="original" title="Cosmic Night"></button>
+        <button class="theme-btn theme-stately-btn" data-theme="stately" title="Stately Theme"></button>
+        <button class="theme-btn theme-forest-btn" data-theme="forest" title="Forest Canopy"></button>
+    </div>
+
+    <div class="progress-indicator" id="progressBar"></div>
+
+    <div class="container">
+        <div class="sticky-nav-header">
+            <header class="header">
+                <h1 class="book-title">Behold Your God</h1>
+                <div class="chapter-info">Chapter 3: Avoid Speculative Theories</div>
+                <div class="page-range">Pages 17-24</div>
+            </header>
+            <nav class="nav-tabs">
+                <button class="tab-button active" data-tab="thesis">Central Thesis</button>
+                <button class="tab-button" data-tab="arguments">Main Arguments</button>
+                <button class="tab-button" data-tab="concepts">Key Concepts</button>
+                <button class="tab-button" data-tab="references">References</button>
+                <button class="tab-button" data-tab="conclusion">Conclusion</button>
+            </nav>
+        </div>
+
+        <main>
+            <div class="content-panel active" id="thesis">
+                <h2 class="section-title">The Point of the Chapter</h2>
+                <div class="central-thesis">
+                    <strong>Central Thesis:</strong> The author argues that spiritual safety and growth lie in studying only what God has revealed. Attempting to probe unrevealed “secret things” breeds ignorance, pride, and satanic deception, while humbly receiving revealed truth brings ever-brightening knowledge, reverence, and life.
+                </div>
+                <div class="warning-highlight">
+                    <strong>Key Authorial Statement:</strong> “Nothing could be more dangerous than striving to understand the unrevealed things of God by powers within ourselves.”
+                </div>
+                <div class="scripture-ref">
+                    <strong>Foundation Scripture - Deuteronomy 29:29:</strong> "The secret things belong to the Lord our God: but those things which are revealed belong to us and to our children for ever, that we may do all the words of this law."
+                </div>
+            </div>
+            <div class="content-panel" id="arguments">
+                <h2 class="section-title">How the Author Makes His Case</h2>
+                <div class="argument-point">
+                    <div class="argument-title">Argument 1: Revelation Is Progressive and Timed by God</div>
+                    <p>Mysteries that were once secret become revealed truth when humanity is prepared to receive them. The author cites Paul's testimony that truths hidden in earlier ages were unveiled in his day, and this process of ever-brightening knowledge will continue into eternity.</p>
+                    <div class="warning-highlight">
+                        <strong>Key Insight:</strong> "There was a time when certain things were secrets; in Paul’s day those things ‘passed from the category of the secret to that of the revealed.’”
+                    </div>
+                    <div class="quote">
+                        <div class="quote-source">The Great Controversy, p. 678</div>
+                        “The years of eternity, as they roll, will bring richer and still more glorious revelations of God and of Christ. As knowledge is progressive so will love, reverence, and happiness increase.”
+                    </div>
+                </div>
+                <div class="argument-point">
+                    <div class="argument-title">Argument 2: Human Dullness Delays Further Light</div>
+                    <p>God does not arbitrarily conceal truth; rather, humanity's own neglect of present truth and spiritual immaturity can make it obscure. God cannot give "strong meat" to those who remain spiritual "milk-babies," thus hindering their own progress into deeper revelations.</p>
+                    <div class="warning-highlight">
+                        <strong>Key Insight:</strong> "God does not conceal His truth; men make it obscure to themselves."
+                    </div>
+                    <div class="scripture-ref">
+                        <strong>Hebrews 5:11-14:</strong> Rebukes spiritual immaturity that blocks advanced instruction, stating that those who ought to be teachers still need milk because they are "dull of hearing."
+                    </div>
+                </div>
+                <div class="argument-point">
+                    <div class="argument-title">Argument 3: Speculative Theorizing Is Forbidden and Deadly</div>
+                    <p>The author strongly warns against presumptuous human reasoning that attempts to probe into God's unrevealed nature or plans. Such speculation is not only fruitless but invites satanic deception. True wisdom lies in ceasing conjecture and humbly resting in God's revealed word.</p>
+                    <div class="warning-highlight">
+                        <strong>Key Authorial Statement:</strong> "Here silence is eloquence—let none indulge in speculation regarding His nature."
+                    </div>
+                    <div class="quote">
+                        <div class="quote-source">Testimonies for the Church, vol. 8, pp. 279-280</div>
+                        "We are as ignorant of God as little children, but as little children we may love and obey Him. Instead of speculating in regard to His nature or His prerogatives, let us give heed to the word He has spoken."
+                    </div>
+                </div>
+            </div>
+            <div class="content-panel" id="concepts">
+                <h2 class="section-title">Key Terminology & Concepts</h2>
+                <div class="concept-card">
+                    <div class="concept-title">Secret Things</div>
+                    Realities of God’s nature or plans that are not yet revealed to humanity, which belong to Him alone (Deuteronomy 29:29).
+                </div>
+                <div class="concept-card">
+                    <div class="concept-title">Revealed Things</div>
+                    Truths that God has openly communicated for our study, benefit, and obedience. These are our rightful area of focus.
+                </div>
+                <div class="concept-card">
+                    <div class="concept-title">Progressive Revelation</div>
+                    The concept that God continually unveils previously hidden truth in every age, as people are able to receive it. The path of the just "shines ever brighter."
+                </div>
+                <div class="concept-card">
+                    <div class="concept-title">Speculative Theories</div>
+                    Human conjectures and reasoning about unrevealed matters. The author frames these as strictly forbidden, spiritually dangerous, and an invitation to deception.
+                </div>
+            </div>
+            <div class="content-panel" id="references">
+                <h2 class="section-title">Complete Reference Lists</h2>
+                <div class="reference-list" id="referenceList">
+                    <div class="ref-category">
+                        <div class="ref-title">Scriptural References</div>
+                        <div class="ref-item clickable-ref" data-ref-id="deut2929">Deuteronomy 29:29</div>
+                        <div class="ref-item clickable-ref" data-ref-id="eph3">Ephesians 3:1-11</div>
+                        <div class="ref-item clickable-ref" data-ref-id="prov418">Proverbs 4:18</div>
+                        <div class="ref-item clickable-ref" data-ref-id="heb5">Hebrews 5:11-14</div>
+                        <div class="ref-item clickable-ref" data-ref-id="ps4610">Psalm 46:10</div>
+                        <div class="ref-item clickable-ref" data-ref-id="job11">Job 11:7-9</div>
+                        <div class="ref-item clickable-ref" data-ref-id="job28">Job 28:12-28</div>
+                        <div class="ref-item clickable-ref" data-ref-id="rom1133">Romans 11:33</div>
+                    </div>
+                    <div class="ref-category">
+                        <div class="ref-title">Other Texts & Authors</div>
+                        <div class="ref-item clickable-ref" data-ref-id="gc678">The Great Controversy, p. 678</div>
+                        <div class="ref-item clickable-ref" data-ref-id="col127">Christ’s Object Lessons, p. 127</div>
+                        <div class="ref-item clickable-ref" data-ref-id="col105">Christ’s Object Lessons, p. 105</div>
+                        <div class="ref-item clickable-ref" data-ref-id="col134">Christ’s Object Lessons, p. 134</div>
+                        <div class="ref-item clickable-ref" data-ref-id="test8_279">Testimonies for the Church, vol. 8, pp. 279-280</div>
+                        <div class="ref-item clickable-ref" data-ref-id="mh438">The Ministry of Healing, p. 438</div>
+                        <div class="ref-item clickable-ref" data-ref-id="test5_740">Testimonies for the Church, vol. 5, p. 740</div>
+                    </div>
+                </div>
+                <div class="reference-detail-card" id="referenceDetailCard" style="display: none;">
+                    <div class="ref-detail-header">
+                        <span id="refDetailTitle"></span>
+                        <button class="close-ref-btn" aria-label="Close Reference">✕</button>
+                    </div>
+                    <div class="ref-detail-content" id="refDetailContent"></div>
+                </div>
+            </div>
+            <div class="content-panel" id="conclusion">
+                <h2 class="section-title">Chapter Conclusion & Synthesis</h2>
+                <div class="conclusion-box">
+                    <h3 class="panel-subheading">The Balanced Path of Wisdom</h3>
+                    <p>The chapter concludes that a safe and vibrant spiritual life requires a balanced path: we must resolutely avoid speculative trespass into God’s secrets while diligently embracing every truth He has already revealed.</p>
+                </div>
+                <div class="central-thesis">
+                    <strong>The Key to Growth:</strong> As believers faithfully receive and act upon the light God has given, He entrusts them with more. Neglect of current truth or presumptuous speculation into unrevealed mysteries forfeits this privilege and hinders growth. True wisdom is found in humble study, obedience, and patient expectation.
+                </div>
+            </div>
+            </main>
+    </div>
+    
+    <script>
+    // --- WRAP ALL CODE IN DOMContentLoaded to ensure HTML is loaded first ---
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- DATA ---
+        /* START: referenceData from Chapter Summary Document */
+        const referenceData = {
+            'deut2929': {
+                title: 'Deuteronomy 29:29',
+                content: `<div class="verse-text">“The secret things belong to the Lord our God: but those things which are revealed belong to us and to our children for ever, that we may do all the words of this law.”</div>`
+            },
+            'eph3': {
+                title: 'Ephesians 3:1-11',
+                content: `<div class="verse-text">“For this reason I, Paul, the prisoner of Christ Jesus for you Gentiles— If indeed you have heard of the dispensation of the grace of God which was given to me for you, How that by revelation He made known to me the mystery (as I have briefly written already, By which, when you read, you may understand my knowledge in the mystery of Christ), Which in other ages was not made known to the sons of men, as it has now been revealed by the Spirit to His holy apostles and prophets: That the Gentiles should be fellow heirs, of the same body, and partakers of His promise in Christ through the gospel... To me, who am less than the least of all the saints, this grace was given, that I should preach among the Gentiles the unsearchable riches of Christ, And to make all people see what is the fellowship of the mystery... To the intent that now the manifold wisdom of God might be made known by the church to the principalities and powers in the heavenly places, According to the eternal purpose which He accomplished in Christ Jesus our Lord.”</div>`
+            },
+            'prov418': {
+                title: 'Proverbs 4:18',
+                content: `<div class="verse-text">“But the path of the just is like the shining sun, that shines ever brighter unto the perfect day.”</div>`
+            },
+            'heb5': {
+                title: 'Hebrews 5:11-14',
+                content: `<div class="verse-text">“Of whom we have much to say, and hard to explain, since you have become dull of hearing. For though by this time you ought to be teachers, you need someone to teach you again the first principles of the oracles of God; and you have come to need milk and not solid food. For everyone who partakes only of milk is unskilled in the word of righteousness, for he is a babe. But solid food belongs to those who are of full age, that is, those who by reason of use have their senses exercised to discern both good and evil.”</div>`
+            },
+            'ps4610': {
+                title: 'Psalm 46:10',
+                content: `<div class="verse-text">“Be still, and know that I am God.”</div>`
+            },
+            'job11': {
+                title: 'Job 11:7-9',
+                content: `<div class="verse-text">“Can you by searching find out God? Can you find out the Almighty unto perfection? It is as high as heaven; what can you do? Deeper than hell; what can you know? The measure thereof is longer than the earth, And broader than the sea.”</div>`
+            },
+            'job28': {
+                title: 'Job 28:12-28',
+                content: `<div class="verse-text">“Where shall wisdom be found? And where is the place of understanding?… God understands the way thereof, and He knows the place thereof… Then did He see it, and declare it; He prepared it, yea, and searched it out. And unto man He said, Behold, the fear of the Lord, that is wisdom; and to depart from evil is understanding.”</div>`
+            },
+            'rom1133': {
+                title: 'Romans 11:33',
+                content: `<div class="verse-text">“Unsearchable are His judgments, and His ways past finding out.”</div>`
+            },
+            'gc678': {
+                title: 'The Great Controversy, p. 678',
+                content: `<div class="verse-text">“The years of eternity, as they roll, will bring richer and still more glorious revelations of God and of Christ. As knowledge is progressive so will love, reverence, and happiness increase. The more men learn of God, the greater will be their admiration of His character.”</div>`
+            },
+            'col127': {
+                title: 'Christ’s Object Lessons, p. 127',
+                content: `<div class="verse-text">“In every age there is a new development of truth, a message of God to the people of that generation.”</div>`
+            },
+            'col105': {
+                title: 'Christ’s Object Lessons, p. 105',
+                content: `<div class="verse-text">“God does not conceal His truth from men. By their own course of action they make it obscure to themselves.”</div>`
+            },
+            'col134': {
+                title: 'Christ’s Object Lessons, p. 134',
+                content: `<div class="verse-text">“In eternity we shall learn that which, had we received the enlightenment it was possible to obtain here, would have opened our understanding. The themes of redemption will employ the hearts and minds and tongues of the redeemed through the everlasting ages. They will understand the truths which Christ longed to open to His disciples, but which they did not have faith to grasp. Forever and forever new views of the perfection and glory of Christ will appear. Through endless ages will the faithful Householder bring forth from His treasure things new and old.”</div>`
+            },
+            'test8_279': {
+                title: 'Testimonies for the Church, vol. 8, pp. 279-280',
+                content: `<div class="verse-text">“Even the angels were not permitted to share the counsels between the Father and the Son when the plan of salvation was laid. Those human beings who seek to intrude into the secrets of the Most High show their ignorance of spiritual and eternal things. Far better might they, while mercy’s voice is still heard, humble themselves in the dust and plead with God to teach them His ways. We are as ignorant of God as little children, but as little children we may love and obey Him. Instead of speculating in regard to His nature or His prerogatives, let us give heed to the word He has spoken.”</div>`
+            },
+            'mh438': {
+                title: 'The Ministry of Healing, p. 438',
+                content: `<div class="verse-text">“Man cannot by searching find out God. Let none seek with presumptuous hand to lift the veil that conceals His glory. It is a proof of His mercy that there is the hiding of His power; for to lift the veil that conceals the divine presence is death. No mortal mind can penetrate the secrecy in which the Mighty One dwells and works. Only that which He sees fit to reveal can we comprehend of Him. Reason must acknowledge an authority superior to itself. Heart and intellect must bow to the great I AM.”</div>`
+            },
+            'test5_740': {
+                title: 'Testimonies for the Church, vol. 5, p. 740',
+                content: `<div class="verse-text">“It is Satan’s constant study to keep the minds of men occupied with those things which will prevent them from obtaining the knowledge of God.”</div>`
+            }
+        };
+        /* END: referenceData from Chapter Summary Document */
+        
+        // --- DOM ELEMENTS ---
+        const progressBar = document.getElementById('progressBar');
+        const referenceList = document.getElementById('referenceList');
+        const detailCard = document.getElementById('referenceDetailCard');
+        const refTitle = document.getElementById('refDetailTitle');
+        const refContent = document.getElementById('refDetailContent');
+        
+        // --- FUNCTIONS ---
+
+        function showTab(tabName, clickedButton) {
+            document.querySelectorAll('.content-panel').forEach(panel => panel.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
+            updateProgressBar(tabName);
+        }
+
+        function updateProgressBar(tabName) {
+            if (!progressBar) return;
+            const tabs = ['thesis', 'arguments', 'concepts', 'references', 'conclusion'];
+            const currentIndex = tabs.indexOf(tabName);
+            const progress = ((currentIndex + 1) / tabs.length) * 100;
+            progressBar.style.width = progress + '%';
+        }
+        
+        function setTheme(themeName) {
+            document.body.className = `theme-${themeName}`;
+        }
+
+        function showReference(refId) {
+            if (!detailCard || !refTitle || !refContent) return;
+            const data = referenceData[refId];
+            if (!data) return;
+
+            refTitle.textContent = data.title;
+            refContent.innerHTML = data.content;
+            
+            if (referenceList) referenceList.style.display = 'none';
+            detailCard.style.display = 'block';
+        }
+
+        function hideReference() {
+            if (detailCard) detailCard.style.display = 'none';
+            if (referenceList) referenceList.style.display = 'block';
+        }
+        
+        // --- INITIALIZATION & EVENT LISTENERS (Replaces onclick attributes) ---
+
+        // 1. Setup Event Delegation for clicks
+        document.body.addEventListener('click', function(event) {
+            // Tab Buttons
+            const tabButton = event.target.closest('.tab-button');
+            if (tabButton && tabButton.dataset.tab) {
+                showTab(tabButton.dataset.tab, tabButton);
+                return;
+            }
+
+            // Theme Selector Buttons
+            const themeButton = event.target.closest('.theme-btn');
+            if (themeButton && themeButton.dataset.theme) {
+                setTheme(themeButton.dataset.theme);
+                return;
+            }
+
+            // Clickable Reference Items
+            const clickableRef = event.target.closest('.clickable-ref');
+            if (clickableRef && clickableRef.dataset.refId) {
+                showReference(clickableRef.dataset.refId);
+                return;
+            }
+
+            // Close Reference Button
+            if (event.target.closest('.close-ref-btn')) {
+                hideReference();
+                return;
+            }
+        });
+
+        // 2. Keyboard Navigation
+        document.addEventListener('keydown', function(event) {
+            const tabs = ['thesis', 'arguments', 'concepts', 'references', 'conclusion'];
+            const activeTab = document.querySelector('.content-panel.active');
+            if (!activeTab) return;
+            
+            let currentIndex = tabs.indexOf(activeTab.id);
+
+            if (event.key === 'ArrowRight' && currentIndex < tabs.length - 1) {
+                currentIndex++;
+            } else if (event.key === 'ArrowLeft' && currentIndex > 0) {
+                currentIndex--;
+            } else {
+                return; // Not a key we care about or at the end/start
+            }
+            
+            const newTabName = tabs[currentIndex];
+            const newButton = document.querySelector(`.tab-button[data-tab="${newTabName}"]`);
+            showTab(newTabName, newButton);
+        });
+
+        // 3. Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target); // Optional: stop observing after animation
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.argument-point, .concept-card, .quote, .scripture-ref, .central-thesis, .warning-highlight, .conclusion-box, .life-death-contrast').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // 4. Initial page setup
+        setTheme('original'); 
+        updateProgressBar('thesis');
+
+    }); // --- END OF DOMContentLoaded WRAPPER ---
+    </script>
+</body>
+</html>
