@@ -6,6 +6,8 @@
 
     "pageRange": "pp. 1-6",
 
+"sections": ["thesis", "arguments", "concepts", "references", "conclusion"],
+
     "thesis": {
 
       "title": "The Point of the Chapter",
