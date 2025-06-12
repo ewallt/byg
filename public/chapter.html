@@ -532,49 +532,28 @@
 
 
         try {
+                // Fetch theme and chapter JSON in parallel
+                const [themeResponse, contentResponse] = await Promise.all([
+                        fetch('data/themes.json'),
+                        fetch(`data/chapters/${chapterId}.json`)
+                ]);
 
-            // Fetch both JSON files in parallel for performance
+                if (!themeResponse.ok)
+                        throw new Error('Could not load data/themes.json.');
 
-            const [themeResponse, contentResponse] = await Promise.all([
-                fetch('data/themes.json'),
-                fetch(`data/chapters/${chapterId}.json`)   // <-- if you keep one big file instead, use 'data/book-content.json'
-            ]);
+                if (!contentResponse.ok)
+                        throw new Error(`Could not load data/chapters/${chapterId}.json.`);
 
+                const themeData   = await themeResponse.json();
+                const chapterData = await contentResponse.json();   // file is already the chapter object
 
+                // RUN THE RENDERERS
+                applyThemeStyles(themeData);
+                renderChapterContent(chapterData, chapterId);
 
-            if (!themeResponse.ok) throw new Error('Could not load themes.json. Make sure the file exists.');
-
-            if (!contentResponse.ok) throw new Error('Could not load book-content.json. Make sure the file exists.');
-
-
-
-            const themeData = await themeResponse.json();
-
-            const allChaptersData = await contentResponse.json();
-
-
-
-            const chapterData = allChaptersData[chapterId];
-
-            if (!chapterData) throw new Error(`Data for Chapter ${chapterId} not found.`);
-
-            
-
-            // RUN THE RENDERERS
-
-            applyThemeStyles(themeData);
-
-            renderChapterContent(chapterData, chapterId);
-
-            
-
-            // Activate the first tab after rendering
-
-            showTab('thesis', document.querySelector('.tab-button[data-tab="thesis"]'));
-
-
-
-        } catch (error) {
+                // Activate the first tab after rendering
+                showTab('thesis', document.querySelector('.tab-button[data-tab="thesis"]'));
+                } catch (error) {
 
             mainContentArea.innerHTML = `<div class="content-panel active" style="color: #ff8a80;"><h2>Error Loading Page</h2><p>${error.message}</p></div>`;
 
