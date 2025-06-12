@@ -31,33 +31,39 @@
     </section>
   </main>
 
-  <script>
+    <script>
     /*
-      Dynamically discover available chapter JSON files in /data/chapters/
-      Strategy: probe for 1.json … 50.json (adjust maxChapters as needed).
-      A successful fetch (status 200) adds a link; 404 is silently skipped.
+      Dynamically discover chapter JSON files in /data/chapters/
+      – fires off all fetches in parallel for much faster start-up.
     */
     (async () => {
-      const maxChapters = 50; // upper bound — change if book grows
-      const listEl = document.getElementById('toc-list');
+      const maxChapters = 50;                 // upper bound — adjust when book grows
+      const listEl   = document.getElementById('toc-list');
       const statusEl = document.getElementById('status');
-      const entries = [];
 
-      for (let id = 1; id <= maxChapters; id++) {
-        try {
-          const res = await fetch(`data/chapters/${id}.json`);
-          if (!res.ok) continue; // skip if not found
-          const ch = await res.json();
-          entries.push({ id, title: ch.title, pageRange: ch.pageRange });
-        } catch { /* ignore network / parse errors */ }
-      }
+      // Launch all fetches at once
+      const fetches = Array.from({ length: maxChapters }, (_, i) =>
+        fetch(`data/chapters/${i + 1}.json`)
+          .then(r => (r.ok ? r.json() : null))
+          .then(ch => ch && ({ id: i + 1, ch }))
+          .catch(() => null)                 // ignore network / parse errors
+      );
 
-      if (entries.length) {
+      const results = (await Promise.all(fetches)).filter(Boolean);
+
+      if (results.length) {
         statusEl.style.display = 'none';
-        listEl.style.display = 'block';
-        entries.forEach(({ id, title, pageRange }) => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="chapter.html?id=${id}"><strong>Chapter ${id}:</strong> ${title} <em style="opacity:.7;font-size:.9rem;">${pageRange}</em></a>`;
+        listEl.style.display   = 'block';
+
+        results.forEach(({ id, ch }) => {
+          // unwrap if chapter JSON is nested under its numeric key
+          const obj = ch.title ? ch : Object.values(ch)[0];
+          const li  = document.createElement('li');
+          li.innerHTML =
+            `<a href="chapter.html?id=${id}">
+               <strong>Chapter ${id}:</strong> ${obj.title}
+               <em style="opacity:.7;font-size:.9rem;">${obj.pageRange}</em>
+             </a>`;
           listEl.appendChild(li);
         });
       } else {
@@ -65,5 +71,6 @@
       }
     })();
   </script>
+
 </body>
 </html>
