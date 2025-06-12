@@ -536,11 +536,8 @@
             // Fetch both JSON files in parallel for performance
 
             const [themeResponse, contentResponse] = await Promise.all([
-
-                fetch('themes.json'),
-
-                fetch('book-content.json')
-
+                fetch('data/themes.json'),
+                fetch(`data/chapters/${chapterId}.json`)   // <-- if you keep one big file instead, use 'data/book-content.json'
             ]);
 
 
