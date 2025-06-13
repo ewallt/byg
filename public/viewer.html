@@ -102,6 +102,8 @@
     body.theme-stately .ref-item {
         box-shadow:0 2px 8px rgba(0,0,0,.07); }
 
+    .concept-card ul { padding-left: 25px; }
+
     .central-thesis,.warning-highlight,.conclusion-box { padding:25px;font-size:1.1em; }
     .argument-point,.quote,.ref-item { border-left-color:var(--accent-secondary); }
     .quote { font-style:italic; }
@@ -353,6 +355,7 @@
 
     function renderChapterContent(chapterData, chapterId) {
   /* ---------- header text ---------- */
+console.log('chapterData:', chapterData);
   const fullTitle = `Chapter ${chapterId}: ${chapterData.title}`;
   document.title                        = `Behold Your God – ${fullTitle}`;
   document.querySelector('.chapter-info').textContent = fullTitle;
@@ -415,11 +418,11 @@
 
       /* ---- REFERENCES ---- */
       case 'references':
-        const list = l => l.map(r =>
-          `<li class="ref-item clickable-ref" data-ref-id="${r.id}">${r.text}</li>`).join('');
-        html += `<ul id="referenceList">
+const list = l => l.map(r =>
+          `<div class="ref-item clickable-ref" data-ref-id="${r.id}">${r.text}</div>`).join('');
+        html += `<div id="referenceList">
                    ${list(s.scripture)}${list(s.other)}
-                 </ul>
+                 </div>
                  <div id="referenceDetailCard"
                       class="reference-detail-card"
                       style="display:none;">
@@ -476,14 +479,14 @@
                 // Fetch theme and chapter JSON in parallel
                 const [themeResponse, contentResponse] = await Promise.all([
                         fetch('data/themes.json'),
-                        fetch(`data/chapters/${chapterId}.json`)
+                        fetch(`data/contents/content${chapterId}.json`)
                 ]);
 
                 if (!themeResponse.ok)
                         throw new Error('Could not load data/themes.json.');
 
                 if (!contentResponse.ok)
-                        throw new Error(`Could not load data/chapters/${chapterId}.json.`);
+                        throw new Error(`Could not load data/contents/${chapterId}.json.`);
 
                 const themeData   = await themeResponse.json();
                 const chapterData = await contentResponse.json();   // file is already the chapter object

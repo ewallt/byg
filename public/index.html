@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Behold Your God — Table of Contents</title>
   <style>
-    /* --- minimalist dark‑mode friendly styling that pairs with chapter.html --- */
+    /* --- minimalist dark‑mode friendly styling that pairs with viewer.html --- */
     :root {
       --bg: #0d1117;
       --panel: #161b22;
@@ -26,24 +26,24 @@
   <h1>Behold Your God</h1>
   <main>
     <section class="toc-panel" id="toc-panel">
-      <div class="loading" id="status">Loading chapters…</div>
+      <div class="loading" id="status">Loading contents…</div>
       <ul id="toc-list" style="display:none;"></ul>
     </section>
   </main>
 
     <script>
     /*
-      Dynamically discover chapter JSON files in /data/chapters/
+      Dynamically discover chapter JSON files in /data/contents/
       – fires off all fetches in parallel for much faster start-up.
     */
     (async () => {
-      const maxChapters = 50;                 // upper bound — adjust when book grows
+      const maxContents = 50;                 // upper bound — adjust when book grows
       const listEl   = document.getElementById('toc-list');
       const statusEl = document.getElementById('status');
 
       // Launch all fetches at once
-      const fetches = Array.from({ length: maxChapters }, (_, i) =>
-        fetch(`data/chapters/${i + 1}.json`)
+      const fetches = Array.from({ length: maxContents }, (_, i) =>
+        fetch(`data/contents/content${i + 1}.json`)
           .then(r => (r.ok ? r.json() : null))
           .then(ch => ch && ({ id: i + 1, ch }))
           .catch(() => null)                 // ignore network / parse errors
@@ -60,14 +60,14 @@
           const obj = ch.title ? ch : Object.values(ch)[0];
           const li  = document.createElement('li');
           li.innerHTML =
-            `<a href="chapter.html?id=${id}">
+            `<a href="viewer.html?id=${id}">
                <strong>Chapter ${id}:</strong> ${obj.title}
                <em style="opacity:.7;font-size:.9rem;">${obj.pageRange}</em>
              </a>`;
           listEl.appendChild(li);
         });
       } else {
-        statusEl.textContent = 'No chapters found.';
+        statusEl.textContent = 'No contents found.';
       }
     })();
   </script>
