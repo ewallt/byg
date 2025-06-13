@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -353,9 +353,11 @@
 
     // Part 2: Builds the chapter's HTML content from the book-content.json file
 
-    function renderChapterContent(chapterData, chapterId) {
+    function renderChapterContent(chapterData, chapterId, schemaData) {
   /* ---------- header text ---------- */
-console.log('chapterData:', chapterData);
+  console.log('chapterData:', chapterData);
+  console.log('schemaData:', schemaData);
+  
   const fullTitle = `Chapter ${chapterId}: ${chapterData.title}`;
   document.title                        = `Behold Your God – ${fullTitle}`;
   document.querySelector('.chapter-info').textContent = fullTitle;
@@ -476,24 +478,29 @@ const list = l => l.map(r =>
 
 
         try {
-                // Fetch theme and chapter JSON in parallel
-                const [themeResponse, contentResponse] = await Promise.all([
+                // Fetch theme, chapter, and schema JSON in parallel
+                const [themeResponse, contentResponse, schemaResponse] = await Promise.all([
                         fetch('data/themes.json'),
-                        fetch(`data/contents/content${chapterId}.json`)
+                        fetch(`data/contents/content${chapterId}.json`),
+                        fetch('data/schema.json')
                 ]);
 
                 if (!themeResponse.ok)
                         throw new Error('Could not load data/themes.json.');
 
                 if (!contentResponse.ok)
-                        throw new Error(`Could not load data/contents/${chapterId}.json.`);
+                        throw new Error(`Could not load data/contents/content${chapterId}.json.`);
+
+                if (!schemaResponse.ok)
+                        throw new Error('Could not load data/schema.json.');
 
                 const themeData   = await themeResponse.json();
                 const chapterData = await contentResponse.json();   // file is already the chapter object
+                const schemaData  = await schemaResponse.json();
 
                 // RUN THE RENDERERS
                 applyThemeStyles(themeData);
-                renderChapterContent(chapterData, chapterId);
+                renderChapterContent(chapterData, chapterId, schemaData);
 
                 // Activate the first tab after rendering
                 showTab('thesis', document.querySelector('.tab-button[data-tab="thesis"]'));
